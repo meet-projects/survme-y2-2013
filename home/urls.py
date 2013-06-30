@@ -7,4 +7,5 @@ import views
 
 urlpatterns = patterns('',
     url(r'^survey/(?P<id>\d+)/$', views.displaySurvey)
+    url(r'^createsurvey/', views.createSurvey)
 )
