@@ -1,8 +1,9 @@
-from django.http import HttpResponse, render
-
-def displaySurvey(request, sid):
-    queryRes = Survey.objects.filter(id=sid)
-    if not len(queryRes) == 1:
+from django.http import HttpResponse
+from django.shortcuts import render
+from home.models import *
+def displaySurvey(request, id):
+    queryRes = Survey.objects.filter(id=id)
+    if not len(queryRes) == 0:
         # survey doesnt exist
         pass
     survey = queryRes[0]
