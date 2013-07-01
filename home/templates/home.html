@@ -13,9 +13,20 @@
 		{% for survey in recentFeed %}
 			<div> <li>{{survey.title}} - {{survey.desc}}, by {{survey.author}}</li> </div>
 		{% endfor %}
+		</ul>
 	{% else %}
 		No surveys.
 	{% endif %}
-	</ul>
+
+	{% if popularFeed %}
+		Most 5 popular surveys:
+		<ul>
+		{% for survey in popularFeed %}
+			<div> <li>{{survey.title}} - {{survey.desc}}, by {{survey.author}}</li> </div>
+		{% endfor %}
+		</ul>
+	{% else %}
+		No surveys.
+	{% endif %}
 </body>
 </html>
