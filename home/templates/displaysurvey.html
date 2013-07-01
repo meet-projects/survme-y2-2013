@@ -1,8 +1,9 @@
-<html>
-<head> 
-	<title>SurvMe - Survey {{id}}</title>
-</head>
-<body>
+{% extends "base.html"%}
+
+	{% block title%}
+	SurvMe
+	{% endblock %}
+{% block content %}
 	{% if id == -1 %}
 		Error: invalid survey id.
 	{% else %}
@@ -19,5 +20,4 @@
 		{% endfor %}
 	{% endif %}
 	</ul>
-</body>
-</html>
+{% endblock %}
