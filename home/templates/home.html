@@ -1,12 +1,12 @@
-{% extends "base.html"%}
-{% block title%}
-	SurvMe Home Page
+{% extends "base.html" %}
+{% block title %}
+	Home Page
 {% endblock %}
 {% block headers %}
-	<link rel= "stylesheet" type= "text/css" href="{{STATIC_URL}}css/home.css">
+
 {% endblock %}
 {% block content %}
-	<div id="main">
+	<div>
 		{% if recentFeed %}
 			Most 5 recent surveys:
 			<ul>

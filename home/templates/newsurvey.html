@@ -1,26 +1,19 @@
-<html>
+{% extends "base.html"%}
 
-	<head>
-		<title> Create Survey </title>
-		<meta name= "keywords" content= "Survey, Questionare, Data, Graph, Ask, Answer">
-		<meta name= "description' content= "Connect with others who have the same interests by filling out surveys">
-		<meta name= "author" content="Nadeen J, Ron L, Yasmine Y, Yarden B, Aviv B">
-	</head>
-
-	<body>
-		<form action="create/" method= "post">
-			{% csrf_token %}
-			<p>Title: <input type= "text" name= "title" > </p>
-			<p>Author: <input type= "text" name= "author" > </p>
-			<p>Description: <input type= "text" name= "desc" > </p>
-			<p>Answer: <input type= "text" name= "answer1" > </p>	
-			<p>Answer: <input type= "text" name= "answer2" > </p>
-			<div>
-				<input type= "button" value= "Add another answer">
-				<input type= "submit" value= "Submit">
-			</div>		
-		</form>
-		
-	</body>
-
-</html>
+{% block title %}
+	View Survey Page
+{% endblock %}
+{% block content %}
+	<form action="create/" method= "post">
+		{% csrf_token %}
+		<p>Title: <input type= "text" name= "title" > </p>
+		<p>Author: <input type= "text" name= "author" > </p>
+		<p>Description: <input type= "text" name= "desc" > </p>
+		<p>Answer: <input type= "text" name= "answer1" > </p>	
+		<p>Answer: <input type= "text" name= "answer2" > </p>
+		<div>
+			<input type= "button" value= "Add another answer">
+			<input type= "submit" value= "Submit">
+		</div>		
+	</form>
+{% endblock %}
