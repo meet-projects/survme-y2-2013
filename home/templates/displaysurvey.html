@@ -3,7 +3,7 @@
 	<title>SurvMe - Survey {{id}}</title>
 </head>
 <body>
-	<!---{% if id == -1 %}
+	{% if id == -1 %}
 		Error: invalid survey id.
 	{% else %}
 		id = {{id}}
@@ -18,18 +18,6 @@
 			<li>{{answer.text}} - {{answer.votes}} votes</li>
 		{% endfor %}
 	{% endif %}
-	</ul>--->
-	<div>
-		<img src="http://www.logomaker.com/logo-images/00509fbf3b56c352.gif"/>
-		<a href="http://www.logomaker.com"><img src="http://www.logomaker.com/images/		logos.gif" alt="logos" border="0"/></a> Answer Surveys and Grow Closer to People
-	</div>
-	<div> {{title}} ({{author}}) </div>
-	<p> {{desc}} </p>
-	<ul>
-		{%for ans in answers%}
-			<li><input type="radio" name="answer">{{ans.text}} votes:{{ans.votes}}</li>
-		{%endfor%}
 	</ul>
-
 </body>
 </html>
