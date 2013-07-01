@@ -8,5 +8,6 @@ import views
 urlpatterns = patterns('',
     url(r'^home/', views.homepage),
     url(r'^survey/(?P<sid>\d+)/$', views.displaySurvey),
+    url(r'^browse/', views.browse),
     url(r'^createsurvey/', views.createSurvey)
 )

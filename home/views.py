@@ -33,9 +33,9 @@ def homepage(request):
         votes = {}
         for answer in objects:
             if answer.survey in votes:
-                vote[answer.survey] += answer.votes
+                votes[answer.survey] += answer.votes
             else:
-                vote[answer.survey] = answer.votes
+                votes[answer.survey] = answer.votes
         return sorted(votes, key=votes.get, reverse=True)[:5]
     context = {"recentFeed":getLatestFive(), "popularFeed":getPopularFive()}
     return render(request, "home.html", context)
