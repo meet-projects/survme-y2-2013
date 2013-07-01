@@ -1,0 +1,23 @@
+<html>
+<head> 
+	<title>SurvMe - Survey {{id}}</title>
+</head>
+<body>
+	{% if id == -1 %}
+		Error: invalid survey id.
+	{% else %}
+		id = {{id}}
+		title = {{title}}
+		desc = {{desc}}
+		author = {{author}}
+		display = {{display}}
+		public = {{public}}
+		Answers:
+		<ul>
+		{% for answer in answers %}
+			<li>{{answer.text}} - {{answer.votes}} votes</li>
+		{% endfor %}
+	{% endif %}
+	</ul>
+</body>
+</html>

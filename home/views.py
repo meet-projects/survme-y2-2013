@@ -1,15 +1,16 @@
-from django.http import HttpResponse, render
+from django.http import HttpResponse
+from django.shortcuts import render
+from models import Survey, Answer
+
 
 def displaySurvey(request, sid):
     queryRes = Survey.objects.filter(id=sid)
     if not len(queryRes) == 1:
         # survey doesnt exist
-        pass
+        context = {"id":-1}
+        return render(request, "displaysurvey.html", context)
     survey = queryRes[0]
-    queryRes = Answer.objects.filter(survey=sid)
-    surveyAnswers = []
-    for answer in queryRes:
-        surveyAnswers.append((survey.text, survey.votes))
+    surveyAnswers = Answer.objects.filter(survey=sid)
     context = {
         "id":survey.id,
         "title":survey.title,
@@ -23,3 +24,8 @@ def displaySurvey(request, sid):
 
 def createSurvey(request, id):
     return HttpResponse("Create survey page")
+
+def homepage(request):
+    queryRes = Survey.objects.all()
+    context = { }
+    return render(request, "home.html", context)
