@@ -2,7 +2,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from models import Survey, Answer
 
-
 def displaySurvey(request, sid):
     queryRes = Survey.objects.filter(id=sid)
     if not len(queryRes) == 1:
@@ -21,6 +20,9 @@ def displaySurvey(request, sid):
         "public":survey.public
         }
     return render(request, "displaysurvey.html", context)
+
+def handleVote(request, sid):
+    return HttpResponse(request, "Voted.")
 
 def createSurvey(request):
     context = {}

@@ -14,10 +14,13 @@
 		display = {{display}}
 		public = {{public}}
 		Answers:
-		<ul>
+		<ul> <form action="vote/" method= "post">
+		{% csrf_token %}
 		{% for answer in answers %}
-			<li>{{answer.text}} - {{answer.votes}} votes</li>
+				<li><input type="radio" name="answers" value="answer{{forloop.counter}}"> {{answer.text}} - {{answer.votes}} votes</li>
 		{% endfor %}
+		<input type="submit" value="Vote">
+		</form> </ul>
 	{% endif %}
 	</ul>
 {% endblock %}
