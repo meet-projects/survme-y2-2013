@@ -10,7 +10,7 @@
 			<input type= "submit" value= "Most Recent">
 		</div>
 		<!-- expecting a context containing a list of 5 surveys called survs -->
-		{%for surv in survs%}
+		{%for surv in recentFeed%}
 			<div>
 				<p> {{surv.title}} </p>
 				<p> {{surv.desc}} </p>

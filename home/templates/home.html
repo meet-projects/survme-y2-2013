@@ -3,11 +3,18 @@
 	<title>SurvMe - Survey</title>
 </head>
 <body>
+	<div>
+			<img src="http://www.logomaker.com/logo-images/00509fbf3b56c352.gif"/>
+			<a href="http://www.logomaker.com"><img src="http://www.logomaker.com/images/	logos.gif" alt="logos" border="0"/></a> Answer Surveys and Grow Closer to People
+		</div>
+<div> <input type= "submit" value= "Most Popular">
+			<input type= "submit" value= "Most Recent">
+		</div>
 	{% if recentFeed %}
 		Most 5 recent surveys:
 		<ul>
 		{% for survey in recentFeed %}
-			<li>{{survey.title}} - {{survey.desc}}, by {{survey.author}}</li>
+			<div> <li>{{survey.title}} - {{survey.desc}}, by {{survey.author}}</li> </div>
 		{% endfor %}
 	{% else %}
 		No surveys.
