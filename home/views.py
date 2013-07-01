@@ -29,6 +29,24 @@ def homepage(request):
     def getLatestFive():
         return sorted(Survey.objects.all(), reverse=True)[:5]
     def getPopularFive():
-        pass
-    context = {"recentFeed":getLatestFive()}
+        objects = Answer.objects.all()
+        votes = {}
+        for answer in objects:
+            if answer.survey in votes:
+                vote[answer.survey] += answer.votes
+            else:
+                vote[answer.survey] = answer.votes
+        return sorted(votes, key=votes.get, reverse=True)[:5]
+    context = {"recentFeed":getLatestFive(), "popularFeed":getPopularFive()}
     return render(request, "home.html", context)
+
+def browse(request):
+    all_surveys = Survey.objects.all()
+    for survey in all_surveys:
+        answers = Answer.objects.filter(survey=survey.id)
+        votecount = 0
+        for answer in answers:
+            votecount += answer.votes
+        survey.totalvotes = votecount
+    context = {"surveys":all_surveys}
+    return render(request, "browse.html", context)
