@@ -42,7 +42,7 @@ def handleForm(request):
     for answer in answers:
         new_answer = Answer(survey=new_survey, text=answer, votes=0)
         new_answer.save()
-    return HttpResponseRedirect('/home/survey/' + str(new_survey.id))
+    return HttpResponseRedirect('/survey/' + str(new_survey.id))
 
 def homepage(request):
     def getLatestFive():

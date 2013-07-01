@@ -11,7 +11,7 @@
 			</tr>
 		{% for survey in surveys %}
 			<tr> 
-				<td>{{survey.id}}</td><td>{{survey.title}}</td><td>{{survey.desc}}</td><td>{{survey.author}}</td><td>{{survey.totalvotes}}</td><td><a href="/home/survey/{{survey.id}}">Click Here</a> </td>
+				<td>{{survey.id}}</td><td>{{survey.title}}</td><td>{{survey.desc}}</td><td>{{survey.author}}</td><td>{{survey.totalvotes}}</td><td><a href="/survey/{{survey.id}}">Click Here</a> </td>
 			</tr>
 		{% endfor %}
 		</table>
