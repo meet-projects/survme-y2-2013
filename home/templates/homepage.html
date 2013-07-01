@@ -1,0 +1,21 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<div>
+			<img src="http://www.logomaker.com/logo-images/00509fbf3b56c352.gif"/>
+			<a href="http://www.logomaker.com"><img src="http://www.logomaker.com/images/	logos.gif" alt="logos" border="0"/></a> Answer Surveys and Grow Closer to People
+		</div>
+		<div> <input type= "submit" value= "Most Popular">
+			<input type= "submit" value= "Most Recent">
+		</div>
+		<!-- expecting a context containing a list of 5 surveys called survs -->
+		{%for surv in survs%}
+			<div>
+				<p> {{surv.title}} </p>
+				<p> {{surv.desc}} </p>
+				<input type= "submit" value= "Answer">
+			</div>
+		{%endfor%}		
+	</body>
+	</html>
