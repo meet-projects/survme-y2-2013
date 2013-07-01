@@ -1,0 +1,23 @@
+<html>
+<head> 
+	<title>SurvMe - Survey</title>
+</head>
+<body>
+	{% if surveys %}
+		All surveys in database:
+		<table border="1">
+			<tr> 
+				<td>ID</td><td>Title</td><td>Description</td><td>Author</td><td>Total Votes</td><td>Page</td>
+			</tr>
+		{% for survey in surveys %}
+			<tr> 
+				<td>{{survey.id}}</td><td>{{survey.title}}</td><td>{{survey.desc}}</td><td>{{survey.author}}</td><td>{{survey.totalvotes}}</td><td><a href="/home/survey/{{survey.id}}">Click Here</a> </td>
+			</tr>
+		{% endfor %}
+		</table>
+	{% else %}
+		No surveys in database.
+	{% endif %}
+	</ul>
+</body>
+</html>
