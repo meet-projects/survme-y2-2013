@@ -22,7 +22,8 @@ def displaySurvey(request, sid):
     return render(request, "displaysurvey.html", context)
 
 def handleVote(request, sid):
-    return HttpResponse(request, "Voted.")
+    choice = request.POST['answers']
+    return HttpResponse("Answered: " + str(choice))
 
 def createSurvey(request):
     context = {}

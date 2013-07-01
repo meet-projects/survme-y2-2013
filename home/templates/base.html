@@ -1,16 +1,16 @@
 <html>
 <head>
-	<title> {%block title %} {% endblock %} </title>
+	<title> {% block title %} {% endblock %} </title>
 	{% block headers %}
 	
 	{% endblock %}
 </head>
 <body>
-	<div >
+	<div>
 		<img src="http://www.logomaker.com/logo-images/00509fbf3b56c352.gif"/>
-		<a href="http://www.logomaker.com"><img src="http://www.logomaker.com/images/logos.gif" alt="logos" 			border="0"/></a> Answer Surveys and Grow Closer to People 
+		<img src="http://www.logomaker.com/images/logos.gif" alt="logos" 			border="0"/>SurvMe
 		<table> 
-			<tr> <td> Home </td> <td> Create Survey </td> <td> Search <input type= "text" name= "search"> </td> 				</tr>		 
+			<tr><td><a href="/home">Home</a></td><td><a href="/new">New Survey</a></td><td><a href="/browse">Browse</a></td>
 		</table>
 		<hr>
 	</div>
