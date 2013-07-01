@@ -1,8 +1,8 @@
 {% extends "base.html"%}
 
-	{% block title%}
-	SurvMe
-	{% endblock %}
+{% block title %}
+	View Survey Page
+{% endblock %}
 {% block content %}
 	{% if id == -1 %}
 		Error: invalid survey id.
@@ -17,7 +17,7 @@
 		<ul> <form action="vote/" method= "post">
 		{% csrf_token %}
 		{% for answer in answers %}
-				<li><input type="radio" name="answers" value="answer{{forloop.counter}}"> {{answer.text}} - {{answer.votes}} votes</li>
+				<li><input type="radio" name="answers" value="{{forloop.counter}}"> {{answer.text}} - {{answer.votes}} votes</li>
 		{% endfor %}
 		<input type="submit" value="Vote">
 		</form> </ul>

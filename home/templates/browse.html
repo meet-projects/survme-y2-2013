@@ -1,8 +1,11 @@
-<html>
-<head> 
-	<title>SurvMe - Survey</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title%}
+	Browse Surveys Page
+{% endblock %}
+{% block headers %}
+
+{% endblock %}
+{% block content %}
 	{% if surveys %}
 		All surveys in database:
 		<table border="1">
@@ -19,5 +22,4 @@
 		No surveys in database.
 	{% endif %}
 	</ul>
-</body>
-</html>
+{% endblock %}
