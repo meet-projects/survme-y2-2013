@@ -26,6 +26,9 @@ def createSurvey(request, id):
     return HttpResponse("Create survey page")
 
 def homepage(request):
-    queryRes = Survey.objects.all()
-    context = { }
+    def getLatestFive():
+        return sorted(Survey.objects.all(), reverse=True)[:5]
+    def getPopularFive():
+        pass
+    context = {"recentFeed":getLatestFive()}
     return render(request, "home.html", context)

@@ -1,22 +1,16 @@
 <html>
 <head> 
-	<title>SurvMe - Survey {{id}}</title>
+	<title>SurvMe - Survey</title>
 </head>
 <body>
-	{% if id == -1 %}
-		Error: invalid survey id.
-	{% else %}
-		id = {{id}}
-		title = {{title}}
-		desc = {{desc}}
-		author = {{author}}
-		display = {{display}}
-		public = {{public}}
-		Answers:
+	{% if recentFeed %}
+		Most 5 recent surveys:
 		<ul>
-		{% for answer in answers %}
-			<li>{{answer.text}} - {{answer.votes}} votes</li>
+		{% for survey in recentFeed %}
+			<li>{{survey.title}} - {{survey.desc}}, by {{survey.author}}</li>
 		{% endfor %}
+	{% else %}
+		No surveys.
 	{% endif %}
 	</ul>
 </body>

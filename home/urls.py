@@ -6,7 +6,7 @@ import views
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^home/', views.homepage)
+    url(r'^home/', views.homepage),
     url(r'^survey/(?P<sid>\d+)/$', views.displaySurvey),
     url(r'^createsurvey/', views.createSurvey)
 )
