@@ -22,8 +22,12 @@ def displaySurvey(request, sid):
     return render(request, "displaysurvey.html", context)
 
 def handleVote(request, sid):
-    choice = request.POST['answers']
-    return HttpResponse("Answered: " + str(choice))
+    choice = int(unicode(request.POST['answers']))
+    answers = Answer.objects.filter(survey=sid)
+    answer = answers[choice-1]
+    answer.votes += 1
+    answer.save()
+    return HttpResponseRedirect('/survey/' + str(sid))
 
 def createSurvey(request):
     context = {}
@@ -47,7 +51,9 @@ def handleForm(request):
 
 def homepage(request):
     def getLatestFive():
-        return sorted(Survey.objects.all(), reverse=True)[:5]
+        objects = Survey.objects.order_by('id')
+        objects.reverse()
+        return objects[:5]
     def getPopularFive():
         objects = Answer.objects.all()
         votes = {}
