@@ -1,7 +1,24 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from models import Survey, Answer, Comment
+import json
 
+def percent(list):
+    arr = []
+    total = sum(list)
+    for i in range(len(list)):
+        p = 0.0
+        if total != 0:
+            p = (1.0 * list[i] / total)*100
+        arr.append(float(str("%.2f" % p)))
+    return arr
+
+def votes_dic(answers):
+    res = {}
+    for a in answers:
+        res[a.text] = a.votes
+    return res
+        
 def displaySurvey(request, sid):
     queryRes = Survey.objects.filter(id=sid)
     if not len(queryRes) == 1:
@@ -11,17 +28,16 @@ def displaySurvey(request, sid):
     survey = queryRes[0]
     answers = Answer.objects.filter(survey=sid)
     comments = Comment.objects.filter(survey=sid)
+    JSON = {}
+    JSON['categories'] = [(answer.text) for answer in answers]
+    JSON['votes'] = votes_dic(answers)
+    JSON['percent'] = percent([(answer.votes) for answer in answers])
     context = {
-        "id":survey.id,
-        "title":survey.title,
-        "desc":survey.desc,
+        "poll":survey,
         "answers":answers,
-        "author":survey.author,
-        "display":survey.display,
-        "public":survey.public,
-        "date":survey.date,
         "comments":comments,
-        "test":"Test String"
+        # ohai ron python encodes python dictionaries into json nicely so you don't have to fuck with curly braces etc. <3 <3 <3
+        "JSON": json.dumps(JSON) 
         }
     return render(request, "displaysurvey.html", context)
 
