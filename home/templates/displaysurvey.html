@@ -3,25 +3,32 @@
 {% block title %}
 	View Survey Page
 {% endblock %}
+
+{% block headers %}
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/displaysurvey.css">
+{% endblock %}
+
 {% block content %}
 	{% if id == -1 %}
 		Error: invalid survey id.
 	{% else %}
-		id = {{id}}
-		title = {{title}}
-		desc = {{desc}}
-		author = {{author}}
-		display = {{display}}
-		public = {{public}}
-		creation date = {{date}}
-		Answers:
-		<ul> <form action="vote/" method= "post">
-		{% csrf_token %}
-		{% for answer in answers %}
-				<li><input type="radio" name="answers" value="{{forloop.counter}}"> {{answer.text}} - {{answer.votes}} votes</li>
-		{% endfor %}
-		<input type="submit" value="Vote">
-		</form> </ul>
+
+		<div id="frame" align="center">
+			<p id="title">Title: {{title}}</p>
+			<p id="subtitle">By {{author}}, {{date}}</p>
+			<p> Survey Description: {{desc}}</p>
+			Answers:
+			<ul> <form action="vote/" method= "post">
+			{% csrf_token %}
+			{% for answer in answers %}
+					<li><input type="radio" name="answers" value="{{forloop.counter}}"> {{answer.text}} - {{answer.votes}} votes</li>
+			{% endfor %}
+			<input type="submit" value="Vote">
+			</form> </ul>
+		</div>
+
+
+
 		Comments:
 		<form action="comment/" method= "post">{% csrf_token %}<input type= "text" name= "text" value="Write your own comment.."> <input type= "text" name= "author" value="Your name"> <input type= "submit" value= "Submit"></form>
 		{% if comments %}

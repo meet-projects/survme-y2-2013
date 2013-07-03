@@ -4,29 +4,32 @@
 	View Survey Page
 {% endblock %}
 {% block headers %}
-<script type="text/javascript">
-$(function(){
-	var i =3;
-	$("#add").click(function(){
-		var formElement = document.getElementById("createSurv");
-		var form = formElement.innerHTML;
-		form = form+"<tr><td>Answer: </td><td><input type= 'text' name= 'answer"+i+"' > </td></tr>";
-		formElement.innerHTML+="<tr><td>Answer: </td><td><input type= 'text' name= 'answer"+i+"' > </td></tr>";
-		i++;
 
-	});
-});
-</script>
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/newsurvey.css">
+
+	<script type="text/javascript">
+		$(function(){
+			var i =3;
+			$("#add").click(function(){
+				var formElement = document.getElementById("createSurv");
+				var form = formElement.innerHTML;
+				form = form+"<tr><td><div class='row'>Answer: <input type= 'text' name= 'answer"+i+"' > </div></td></tr>";
+				formElement.innerHTML+="<tr><td><div class='row'>Answer: <input type= 'text' name= 'answer"+i+"' > </div></td></tr>";
+				i++;
+
+			});
+		});
+	</script>
 {% endblock %}
 {% block content %}
 	<form action="create/" method= "post">
 			<table id="createSurv">
 				{% csrf_token %}
-				<tr><td>Title: </td><td><input type= "text" name= "title" ></td></tr>
-				<tr><td>Author: </td><td><input type= "text" name= "author" ></td></tr>
-				<tr><td>Description: </td><td><input type= "text" name= "desc" ></td></tr>
-				<tr><td>Answer: </td><td><input type= "text" name= "answer1" ></td></tr>	
-				<tr><td>Answer: </td><td><input type= "text" name= "answer2" ></td></tr>
+				<tr><td valign="middle"><div class="row">Title: <input type= "text" name= "title" ></div></td></tr>
+				<tr><td><div class="row">Author: <input type= "text" name= "author" ></div></td></tr>
+				<tr><td><div class="row">Description: <input type= "text" name= "desc" ></div></td></tr>
+				<tr><td><div class="row">Answer: <input type= "text" name= "answer1" ></div></td></tr>	
+				<tr><td><div class="row">Answer: <input type= "text" name= "answer2" ></div></td></tr>
 			</table>
 			<div>
 				<input id="add" type= "button" value= "Add another answer">
