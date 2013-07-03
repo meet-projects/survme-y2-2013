@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from models import Survey, Answer
+from models import Survey, Answer, Comment
 
 def displaySurvey(request, sid):
     queryRes = Survey.objects.filter(id=sid)
@@ -9,15 +9,18 @@ def displaySurvey(request, sid):
         context = {"id":-1}
         return render(request, "displaysurvey.html", context)
     survey = queryRes[0]
-    surveyAnswers = Answer.objects.filter(survey=sid)
+    answers = Answer.objects.filter(survey=sid)
+    comments = Comment.objects.filter(survey=sid)
     context = {
         "id":survey.id,
         "title":survey.title,
         "desc":survey.desc,
-        "answers":surveyAnswers,
+        "answers":answers,
         "author":survey.author,
         "display":survey.display,
-        "public":survey.public
+        "public":survey.public,
+        "date":survey.date,
+        "comments":comments
         }
     return render(request, "displaysurvey.html", context)
 
@@ -27,6 +30,16 @@ def handleVote(request, sid):
     answer = answers[choice-1]
     answer.votes += 1
     answer.save()
+    return HttpResponseRedirect('/survey/' + str(sid))
+
+def handleComment(request, sid):
+    new_text = unicode(request.POST['text'])
+    new_author = unicode(request.POST['author'])
+    queryRes = Survey.objects.filter(id=sid)
+    if len(queryRes) == 1:
+        sur = queryRes[0]
+        comment = Comment(survey=sur, text=new_text, author=new_author)
+        comment.save()
     return HttpResponseRedirect('/survey/' + str(sid))
 
 def createSurvey(request):

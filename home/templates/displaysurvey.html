@@ -13,6 +13,7 @@
 		author = {{author}}
 		display = {{display}}
 		public = {{public}}
+		creation date = {{date}}
 		Answers:
 		<ul> <form action="vote/" method= "post">
 		{% csrf_token %}
@@ -21,6 +22,15 @@
 		{% endfor %}
 		<input type="submit" value="Vote">
 		</form> </ul>
+		Comments:
+		<form action="comment/" method= "post">{% csrf_token %}<input type= "text" name= "text" value="Write your own comment.."> <input type= "text" name= "author" value="Your name"> <input type= "submit" value= "Submit"></form>
+		{% if comments %}
+			{% for comment in comments %}
+					<li>]{{comment.date}}] {{comment.author}}: {{comment.text}}</li>
+			{% endfor %}
+		{% else %}
+			There are no comments on this poll.
+		{% endif %}
 	{% endif %}
 	</ul>
 {% endblock %}

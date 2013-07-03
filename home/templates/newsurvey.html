@@ -22,7 +22,7 @@ $(function(){
 	<form action="create/" method= "post">
 		{% csrf_token %}
 		<div id="createSurv">
-		<p>Title: <input type= "text" name= "title" > </p>
+		<p>Title: <input type= "text" name= "title"> </p>
 		<p>Author: <input type= "text" name= "author" > </p>
 		<p>Description: <input type= "text" name= "desc" > </p>
 		<p>Answer: <input type= "text" name= "answer1" > </p>	
@@ -31,6 +31,6 @@ $(function(){
 		<div>
 			<input id="add" type= "button" value= "Add another answer">
 			<input type= "submit" value= "Submit">
-		</div>		
+		</div>
 	</form>
 {% endblock %}
