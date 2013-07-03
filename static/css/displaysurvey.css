@@ -1,0 +1,19 @@
+#title{
+	color:#663300;
+	text-align:center;
+	font-size:200%;
+}
+
+
+#subtitle{
+	color:#996633;
+	font-size:120%;
+}
+
+
+#frame{
+	background-color:#FFFFCC;
+	margin:100px;
+	padding:25px;
+	border-radius:1em 1em 1em 1em;
+}

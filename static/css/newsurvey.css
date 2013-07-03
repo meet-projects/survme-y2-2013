@@ -1,0 +1,17 @@
+.row {
+	border:1px;
+	border-style:solid;
+	padding:20px;
+	margin-top:10px;
+	border-radius:0.7em 0.7em 0.7em 0.7em;
+	background-color:#CC9966;
+vertical-align:middle;
+
+}
+
+
+.row input{
+	float:right; 
+	border-radius:0.7em 0.7em 0.7em 0.7em;
+	vertical-align:middle;
+}
