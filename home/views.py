@@ -20,7 +20,8 @@ def displaySurvey(request, sid):
         "display":survey.display,
         "public":survey.public,
         "date":survey.date,
-        "comments":comments
+        "comments":comments,
+        "test":"Test String"
         }
     return render(request, "displaysurvey.html", context)
 
