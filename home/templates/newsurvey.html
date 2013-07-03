@@ -10,8 +10,8 @@ $(function(){
 	$("#add").click(function(){
 		var formElement = document.getElementById("createSurv");
 		var form = formElement.innerHTML;
-		form = form+"<p>Answer: <input type= 'text' name= 'answer"+i+"' > </p>";
-		formElement.innerHTML+="<p>Answer: <input type= 'text' name= 'answer"+i+"' > </p>";
+		form = form+"<tr><td>Answer: </td><td><input type= 'text' name= 'answer"+i+"' > </td></tr>";
+		formElement.innerHTML+="<tr><td>Answer: </td><td><input type= 'text' name= 'answer"+i+"' > </td></tr>";
 		i++;
 
 	});
@@ -20,17 +20,18 @@ $(function(){
 {% endblock %}
 {% block content %}
 	<form action="create/" method= "post">
-		{% csrf_token %}
-		<div id="createSurv">
-		<p>Title: <input type= "text" name= "title"> </p>
-		<p>Author: <input type= "text" name= "author" > </p>
-		<p>Description: <input type= "text" name= "desc" > </p>
-		<p>Answer: <input type= "text" name= "answer1" > </p>	
-		<p>Answer: <input type= "text" name= "answer2" > </p>
-		</div>
-		<div>
-			<input id="add" type= "button" value= "Add another answer">
-			<input type= "submit" value= "Submit">
-		</div>
+			<table id="createSurv">
+				{% csrf_token %}
+				<tr><td>Title: </td><td><input type= "text" name= "title" ></td></tr>
+				<tr><td>Author: </td><td><input type= "text" name= "author" ></td></tr>
+				<tr><td>Description: </td><td><input type= "text" name= "desc" ></td></tr>
+				<tr><td>Answer: </td><td><input type= "text" name= "answer1" ></td></tr>	
+				<tr><td>Answer: </td><td><input type= "text" name= "answer2" ></td></tr>
+			</table>
+			<div>
+				<input id="add" type= "button" value= "Add another answer">
+				<input type= "submit" value= "Submit">
+			</div>		
 	</form>
+	</table>
 {% endblock %}
