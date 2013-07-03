@@ -1,4 +1,4 @@
-<div id= "homepage" >{% extends "base.html" %}
+<div id="wholepage"><div id= "homepage" >{% extends "base.html" %}
 {% block title %}
 	Home Page
 {% endblock %}
@@ -7,7 +7,7 @@
 {% endblock %}
 {% block content %}
 </div>
-	<div>
+	<div id="feed">
 		{% if recentFeed %}
 			Most 5 recent surveys:
 			<ul>
@@ -30,5 +30,6 @@
 			No surveys.
 		{% endif %}
 	</div>
-{% endblock %}
 
+{% endblock %}
+</div>

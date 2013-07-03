@@ -1,2 +1,30 @@
-#table {position: absolute; bottom: 0; left: 905; background-color:#99CCFF; text-indent:50px;border-style:solid;border-width:2px; text-align:center}
 #menu {position: relative; }
+
+#nav {
+	position: absolute; 
+	bottom: 0;	 
+	right:0;
+	background-color:#99CCFF;
+	border-style:solid;
+	border-width:2px; 
+	text-align:center;
+}
+
+#nav span {padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
