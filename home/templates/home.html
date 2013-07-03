@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+<div id= "homepage" >{% extends "base.html" %}
 {% block title %}
 	Home Page
 {% endblock %}
@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/home.css">
 {% endblock %}
 {% block content %}
+</div>
 	<div>
 		{% if recentFeed %}
 			Most 5 recent surveys:
@@ -30,3 +31,4 @@
 		{% endif %}
 	</div>
 {% endblock %}
+
