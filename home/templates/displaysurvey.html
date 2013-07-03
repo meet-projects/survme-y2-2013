@@ -94,9 +94,9 @@ $(function () {
 	{% else %}
 
 		<div id="frame" align="center">
-			<p id="title">Title: {{title}}</p>
-			<p id="subtitle">By {{author}}, {{date}}</p>
-			<p> Survey Description: {{desc}}</p>
+			<p id="title">Title: {{poll.title}}</p>
+			<p id="subtitle">By {{poll.author}}, {{poll.date}}</p>
+			<p> Survey Description: {{poll.desc}}</p>
 			Answers:
 			<ul> <form action="vote/" method= "post">
 			{% csrf_token %}
