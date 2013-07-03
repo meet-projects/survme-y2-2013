@@ -3,6 +3,10 @@
 {% block title %}
 	View Survey Page
 {% endblock %}
+{% block headers %}
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="{{ STATIC_URL }}js/charts.js"></script>
+{% endblock %}
 {% block content %}
 	{% if id == -1 %}
 		Error: invalid survey id.
@@ -33,4 +37,7 @@
 		{% endif %}
 	{% endif %}
 	</ul>
+
+<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+
 {% endblock %}
