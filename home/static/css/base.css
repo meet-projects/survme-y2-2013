@@ -19,12 +19,24 @@
 }
 
 
+#frame{
+	background-color:#FFFFCC;
+	margin:100px;
+	padding:25px;
+	border-radius:1em 1em 1em 1em;
+}
 
 
 
+.lis{
+	list-style: none;
+}
 
 
-
+input{
+	border-radius:0.7em 0.7em 0.7em 0.7em;
+	vertical-align:middle;
+}
 
 
 

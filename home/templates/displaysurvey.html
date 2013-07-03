@@ -5,7 +5,88 @@
 {% endblock %}
 {% block headers %}
 	<script src="http://code.highcharts.com/highcharts.js"></script>
-	<script src="{{ STATIC_URL }}js/charts.js"></script>
+	<!-- <script src="{{ STATIC_URL }}js/charts.js"></script> -->
+	<script type="text/javascript">
+$(function () {
+	
+		var json = JSON.parse('{{JSON|safe}}');
+        var colors = Highcharts.getOptions().colors,
+            categories = json.categories,
+            name = 'Results',
+            data = [];
+		for(var i = 0; i < json.percent.length; i++)
+		{
+			data.push({y: json.percent[i], color: colors[i]});
+		}
+        function setChart(name, categories, data, color) {
+			chart.xAxis[0].setCategories(categories, false);
+			chart.series[0].remove(false);
+			chart.addSeries({
+				name: name,
+				data: data,
+				color: color || 'white'
+			}, false);
+			chart.redraw();
+        }
+    
+        var chart = $('#container').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: '{{poll.title}}'
+            },
+            subtitle: {
+                text: 'Hover over the answer to view the amount of votes.'
+            },
+            xAxis: {
+                categories: categories
+            },
+            yAxis: {
+                title: {
+                    text: 'Total percent votes'
+                }
+            },
+            plotOptions: {
+                column: {
+                    cursor: 'pointer',
+                    point: {
+                        events: {
+                            click: function() {
+                            }
+                        }
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        color: colors[0],
+                        style: {
+                            fontWeight: 'bold'
+                        },
+                        formatter: function() {
+                            return this.y + '%';
+                        }
+                    }
+                }
+            },
+            tooltip: {
+                formatter: function() {
+                    var point = this.point,
+                        s = this.x +':<b>'+ json.votes[this.x] +' votes</b><br/>';
+                    return s;
+                }
+            },
+            series: [{
+                name: name,
+                data: data,
+                color: 'white'
+            }],
+            exporting: {
+                enabled: false
+            }
+        })
+        .highcharts(); // return chart
+    });
+	</script>
 {% endblock %}
 {% block content %}
 	{% if id == -1 %}
@@ -13,11 +94,11 @@
 	{% else %}
 
 		<div id="frame" align="center">
-			<p id="title">Title: {{title}}</p>
-			<p id="subtitle">By {{author}}, {{date}}</p>
-			<p> Survey Description: {{desc}}</p>
+			<p id="title">Title: {{poll.title}}</p>
+			<p id="subtitle">By {{poll.author}}, {{poll.date}}</p>
+			<p> Survey Description: {{poll.desc}}</p>
 			Answers:
-			<ul> <form action="vote/" method= "post">
+			<ul class="lis"> <form action="vote/" method= "post">
 			{% csrf_token %}
 			{% for answer in answers %}
 					<li><input type="radio" name="answers" value="{{forloop.counter}}"> {{answer.text}} - {{answer.votes}} votes</li>
@@ -27,18 +108,20 @@
 		</div>
 
 
-
-		Comments:
-		<form action="comment/" method= "post">{% csrf_token %}<input type= "text" name= "text" value="Write your own comment.."> <input type= "text" name= "author" value="Your name"> <input type= "submit" value= "Submit"></form>
-		{% if comments %}
-			{% for comment in comments %}
-					<li>]{{comment.date}}] {{comment.author}}: {{comment.text}}</li>
-			{% endfor %}
-		{% else %}
-			There are no comments on this poll.
+	<div id="commentsFrame">
+			Comments:
+			<form action="comment/" method= "post">{% csrf_token %}<input type= "text" name= "text" value="Write your own comment.."> <input type= "text" name= "author" value="Your name"> <input type= "submit" value= "Submit"></form>
+			{% if comments %}
+		<ul class=" lis">
+				{% for comment in comments %}
+						<li><span id="subComm" >[{{comment.date}}]</span> <span id="comm">{{comment.author}}: {{comment.text}}</span></li>
+				{% endfor %}
+			{% else %}
+				There are no comments on this poll.
+			{% endif %}
 		{% endif %}
-	{% endif %}
 	</ul>
+	</div>
 
 <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
 

@@ -1,7 +1,7 @@
 $(function () {
     
         var colors = Highcharts.getOptions().colors,
-            categories = [{{test}}, 'Firefox', 'Chrome', 'Safari', 'Opera'],
+            categories = ['{{test}}', 'Firefox', 'Chrome', 'Safari', 'Opera'],
             name = 'Browser brands',
             data = [{
                     y: 55.11,

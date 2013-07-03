@@ -11,9 +11,22 @@
 }
 
 
-#frame{
-	background-color:#FFFFCC;
+
+#commentsFrame {
+	color:#336699;
+	font-size:125%;
+	background-color:#CCFFFF;
 	margin:100px;
 	padding:25px;
 	border-radius:1em 1em 1em 1em;
+}
+
+#subComm {
+	color:#6699CC;
+	font-size:80%;
+}
+
+#comm{
+	font-size:80%;
+	padding:25px;
 }

@@ -22,19 +22,23 @@
 	</script>
 {% endblock %}
 {% block content %}
-	<form action="create/" method= "post">
-			<table id="createSurv">
-				{% csrf_token %}
-				<tr><td valign="middle"><div class="row">Title: <input type= "text" name= "title" ></div></td></tr>
-				<tr><td><div class="row">Author: <input type= "text" name= "author" ></div></td></tr>
-				<tr><td><div class="row">Description: <input type= "text" name= "desc" ></div></td></tr>
-				<tr><td><div class="row">Answer: <input type= "text" name= "answer1" ></div></td></tr>	
-				<tr><td><div class="row">Answer: <input type= "text" name= "answer2" ></div></td></tr>
-			</table>
-			<div>
-				<input id="add" type= "button" value= "Add another answer">
-				<input type= "submit" value= "Submit">
-			</div>		
-	</form>
+	<div id="frame">
+		<form action="create/" method= "post">
+		<div  align="center">
+				<table id="createSurv">
+					{% csrf_token %}
+					<tr><td valign="middle"><div class="row">Title: <input type= "text" name= "title" ></div></td></tr>
+					<tr><td><div class="row">Author: <input type= "text" name= "author" ></div></td></tr>
+					<tr><td><div class="row">Description: <input type= "text" name= "desc" ></div></td></tr>
+					<tr><td><div class="row">Answer: <input type= "text" name= "answer1" ></div></td></tr>	
+					<tr><td><div class="row">Answer: <input type= "text" name= "answer2" ></div></td></tr>
+				</table>
+		</div>
+				<div>
+					<div align="right"><input id="add" type= "button" value= "Add another answer">
+					<input type= "submit" value= "Submit"></div>
+				</div>		
+		</form>
+	</div>
 	</table>
 {% endblock %}
