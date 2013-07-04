@@ -21,7 +21,7 @@ a.survey_link:link, a.survey_link:visited {
 #nav span {padding: 10px; 
 }
 
-#body {
+body {
   background-image: url('../images/cloud-flares.jpg');
 }
 
