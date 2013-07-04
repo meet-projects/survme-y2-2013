@@ -2,8 +2,8 @@
 	color:#336699;
 	font-size:18px;
 	background-color:#CCFFFF;
-	margin:50px;
-	padding:25px;
+	margin:20px;
+	padding:7px;
 	border-radius:1em 1em 1em 1em;
 }
 
@@ -21,10 +21,5 @@
 	color:black;
 }
 
-input{
-	float:right; 
-	border-radius:0.7em 0.7em 0.7em 0.7em;
-	vertical-align:middle;
-}
 #browseTitle {font-size: 27px; color: #333333;
 }
