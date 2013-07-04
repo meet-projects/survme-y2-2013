@@ -7,9 +7,8 @@
 	border-radius:1em 1em 1em 1em;
 }
 
-#survTItle{
+#survTitle{
 	font-size:23px;
-	text-decoration:underline;
 }
 
 #subTitle{
@@ -26,4 +25,6 @@ input{
 	float:right; 
 	border-radius:0.7em 0.7em 0.7em 0.7em;
 	vertical-align:middle;
+}
+#browseTitle {font-size: 27px; color: #333333;
 }
