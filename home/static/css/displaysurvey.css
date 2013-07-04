@@ -19,6 +19,12 @@
 	margin:100px;
 	padding:25px;
 	border-radius:1em 1em 1em 1em;
+	border-style:outset;
+}
+
+
+#commentsFrame:hover{
+	border-style:inset;
 }
 
 #subComm {

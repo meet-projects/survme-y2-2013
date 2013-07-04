@@ -8,10 +8,20 @@ a.navbar:link, a.navbar:visited {
 	margin:100px;
 	padding:25px;
 	border-radius:1em 1em 1em 1em;
+	border-style:outset;
+}
+
+#mostRecent:hover{
+	border-style:inset;
 }
 
 #mostPopular {background-color: #FFFFCC;
 	margin:100px;
 	padding:25px;
 	border-radius:1em 1em 1em 1em;
+	border-style:outset;
+}
+
+#mostPopular:hover{
+	border-style:inset;
 }

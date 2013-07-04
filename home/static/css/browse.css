@@ -5,7 +5,13 @@
 	margin:20px;
 	padding:7px;
 	border-radius:1em 1em 1em 1em;
+	border-style:outset;
 }
+
+#surveyFrame:hover{
+	border-style:inset;
+}
+
 
 #survTitle{
 	font-size:23px;
