@@ -7,14 +7,15 @@
 {% endblock %}
 {% block content %}
 	{% if surveys %}
-		<p id="browseTitle"> All surveys: </p>		
-		{% for survey in surveys %}
-			<div id="surveyFrame" align="center">
-				<p><span  id="survTitle">{{survey.title}}</span> <span id="subTitle">  by {{survey.author}}			({{survey.totalvotes}} votes) </span></p>
-				<p id="desc">{{survey.desc}}</p>
-				<a href="/survey/{{survey.id}}" id="take"></a>
-			</div>
-		{% endfor %}
+		<p id="browseTitle"> All surveys: </p>
+		<div id="main" align="center">		
+			{% for survey in surveys %}
+				<div class="surveyFrame" align="center">
+					<p><span  class="survTitle">{{survey.title}}</span> <span class="subTitle">  by {{survey.author}}			({{survey.totalvotes}} votes) </span></p>
+					<p class="desc">{{survey.desc}}</p>
+				</div>
+			{% endfor %}
+		</div>
 
 	{% else %}
 		No surveys in database.
