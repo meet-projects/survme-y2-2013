@@ -10,6 +10,10 @@
 	border-width:2px; 
 	text-align:center;
 }
+
+#nav:hover{
+	background-color:#99CCCC;
+}
  
 a.survey_link:link, a.survey_link:visited {
 	color:#663300;
