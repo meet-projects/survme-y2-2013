@@ -1,4 +1,9 @@
-#surveyFrame {
+#main{
+	width:1200px;
+	margin:0 auto;
+}
+
+.surveyFrame {
 	color:#336699;
 	font-size:18px;
 	background-color:#CCFFFF;
@@ -6,28 +11,30 @@
 	padding:7px;
 	border-radius:1em 1em 1em 1em;
 	border-style:outset;
+	width:500px;
+	float:left;
 }
 
-#surveyFrame:hover{
+.surveyFrame:hover{
 	border-style:inset;
 }
 
 
-#survTitle{
+.survTitle{
 	font-size:23px;
 }
 
-#subTitle{
+.subTitle{
 	color:#336699;
 	font-size:16;
 }
 
-#desc{
+.desc{
 	font-size:15;
 	color:black;
 }
 
-input{
+.input{
 	float:right; 
 	border-radius:0.7em 0.7em 0.7em 0.7em;
 	vertical-align:middle;
