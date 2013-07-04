@@ -18,7 +18,7 @@
 			Five most recent surveys:
 			<ul>
 				{% for survey in recentFeed %}
-					<div> <li><a class= "survey_link" href="/survey/{{survey.id}}" >{{survey.title}}</a> - {{survey.desc}}, by {{survey.author}}</li> </div>
+					<div> <li><a class= "survey_link" href="/survey/{{survey.id}}" >{{survey.title}}</a> - by {{survey.author}}</li> </div>
 				{% endfor %}
 			</ul>
 		{% else %}
@@ -31,7 +31,7 @@
 			Five most popular surveys:
 			<ul>
 				{% for survey in popularFeed %}
-					<div> <li><a class= "survey_link" href="/survey/{{survey.id}}">{{survey.title}}</a> - {{survey.desc}}, by {{survey.author}}</li> </div>
+					<div> <li><a class= "survey_link" href="/survey/{{survey.id}}">{{survey.title}}</a> - by {{survey.author}}</li> </div>
 				{% endfor %}
 			</ul>
 		{% else %}

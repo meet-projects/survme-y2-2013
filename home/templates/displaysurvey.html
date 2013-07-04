@@ -8,7 +8,7 @@
 	<script src="http://code.highcharts.com/highcharts.js"></script>
 	<!-- <script src="{{ STATIC_URL }}js/charts.js"></script> -->
 	<script type="text/javascript">
-$(function () {
+	$(function () {
 	
 		var json = JSON.parse('{{JSON|safe}}');
         var colors = Highcharts.getOptions().colors,
@@ -88,6 +88,27 @@ $(function () {
         .highcharts(); // return chart
     });
 	</script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		console.log('ready');
+		$("#comment-form").submit(function() {
+			console.log("Heree");
+			var isFormValid = true;
+			$(".required").each(function(){
+				if ($.trim($(this).val()).length == 0 || $(this).val() == $(this).attr("value")) {
+				    isFormValid = false;
+				}
+				else {
+				    // is valid.
+				}
+			});
+
+			if (!isFormValid) $("#comment-error").css("display", "block");
+
+			return isFormValid;
+		});
+	});
+	</script>
 {% endblock %}
 {% block content %}
 	{% if id == -1 %}
@@ -111,7 +132,8 @@ $(function () {
 
 	<div id="commentsFrame">
 			Comments:
-			<form action="comment/" method= "post">{% csrf_token %}<input type= "text" name= "text" value="Write your own comment.."> <input type= "text" name= "author" value="Your name"> <input type= "submit" value= "Submit"></form>
+			<form id="comment-form" action="comment/" method= "post">{% csrf_token %}<input class="required" type= "text" name= "text" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Write your own comment..':this.value;" value="Write your own comment.."> <input class="required" type= "text" name= "author" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Your Name':this.value;" value="Your Name"> <input type= "submit" value= "Submit"></form>
+			<p id="comment-error" style="display:none; color:red;">Error: please fill the input fields.</p>
 			{% if comments %}
 		<ul class=" lis">
 				{% for comment in comments %}
