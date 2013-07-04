@@ -7,19 +7,22 @@
 {% endblock %}
 {% block content %}
 	{% if surveys %}
-		All surveys in database:
-		<table border="1">
-			<tr> 
-				<td>ID</td><td>Title</td><td>Description</td><td>Author</td><td>Total Votes</td><td>Page</td>
-			</tr>
+		<p id="browseTitle"> All surveys: </p>
 		{% for survey in surveys %}
-			<tr> 
-				<td>{{survey.id}}</td><td>{{survey.title}}</td><td>{{survey.desc}}</td><td>{{survey.author}}</td><td>{{survey.totalvotes}}</td><td><a href="/survey/{{survey.id}}">Click Here</a> </td>
-			</tr>
+			<div id="surveyFrame" align="center">
+				<p><span  id="survTItle">{{survey.title}}</span> <span id="subTitle">  by {{survey.author}}			({{survey.totalvotes}} votes) </span></p>
+				<p id="desc">{{survey.desc}}</p>
+				<a href="/survey/{{survey.id}}" id="take"><input type= "submit" value= "Take the survey!"></a>
+			</div>
 		{% endfor %}
-		</table>
+
 	{% else %}
 		No surveys in database.
 	{% endif %}
-	</ul>
+
 {% endblock %}
+
+
+
+
+<!-- title, desc, author, totalvotes, <a href="/survey/{{survey.id}}">Click Here</a> -->
