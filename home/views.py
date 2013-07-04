@@ -71,7 +71,8 @@ def handleForm(request):
     for i in range(1, 20):
         input_name = "answer" + str(i)
         if input_name in request.POST:
-            answers.append(request.POST[input_name])
+            s = request.POST[input_name].replace("'", "")
+            answers.append(s)
     new_survey = Survey(title=new_title, author=new_author, desc=new_desc)
     new_survey.save()
     for answer in answers:

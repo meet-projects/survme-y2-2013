@@ -9,12 +9,17 @@
 
 	<script type="text/javascript">
 		$(function(){
-			var i = 3;
+			var i =3;
 			$("#add").click(function(){
-				$("#createSurv").append("<tr><td><div class='row'>Answer: <input type='text' name='answer" + i + "'> </div></td></tr>");
+				$("#createSurv").append("<tr><td><div class='row'>Answer: <input type='text' name='answer" + i + "'onclick=\"this.value='';\" onfocus=\"this.select()\" onblur=\"this.value=!this.value?'Answer..':this.value;\" value=\"Answer..\"></div></td></tr>");
 				i++;
+
+			});
+			$("#done").submit(function(){
+				$("#error").css('display','block');
 			});
 		});
+
 	</script>
 {% endblock %}
 {% block content %}
@@ -23,16 +28,17 @@
 		<div  align="center">
 				<table id="createSurv">
 					{% csrf_token %}
-					<tr><td valign="middle"><div class="row">Title: <input type= "text" name= "title" ></div></td></tr>
-					<tr><td><div class="row">Author: <input type= "text" name= "author" ></div></td></tr>
+
+					<tr><td valign="middle"><div class="row">Title: <input type= "text" name= "title" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Title..':this.value;" value="Title.."></div></td></tr>
+					<tr><td><div class="row">Author: <input type= "text" name= "author" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Author..':this.value;" value="Author.."></div></td></tr>
 					<tr><td><div class="row">Description: <textarea cols="25" rows="8" name="desc">Description..</textarea></div></td></tr>
-					<tr><td><div class="row">Answer: <input type= "text" name= "answer1" ></div></td></tr>	
-					<tr><td><div class="row">Answer: <input type= "text" name= "answer2" ></div></td></tr>
+					<tr><td><div class="row">Answer: <input type= "text" name= "answer1" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Answer..':this.value;" value="Answer..""></div></td></tr>	
+					<tr><td><div class="row">Answer: <input type= "text" name= "answer2" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Answer..':this.value;" value="Answer..""></div></td></tr>
 				</table>
 		</div>
 				<div>
 					<div align="right"><input id="add" type= "button" value= "Add another answer" class="button">
-					<input type= "submit" value= "Submit" class="button"></div>
+					<input id="done" type= "submit" value= "Submit"></div>
 				</div>		
 		</form>
 	</div>

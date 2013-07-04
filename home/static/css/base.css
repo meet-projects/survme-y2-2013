@@ -4,13 +4,16 @@
 	position: absolute; 
 	bottom: 0;	 
 	right:0;
-	color: #333333;
-	background-color:#66FFFF;
+	color: white;
+	background-color:#00CCCC;
 	border-style:solid;
 	border-width:2px; 
 	text-align:center;
 }
-
+ 
+a.survey_link:link, a.survey_link:visited {
+	color:#663300;
+}
 #nav span {padding: 10px; 
 }
 

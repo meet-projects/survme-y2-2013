@@ -15,7 +15,6 @@
 
 #survTitle{
 	font-size:23px;
-	text-decoration:underline;
 }
 
 #subTitle{
@@ -65,3 +64,5 @@ input{
    border-top-color: #1b435e;
    background: #1b435e;
    }
+#browseTitle {font-size: 27px; color: #333333;
+}
