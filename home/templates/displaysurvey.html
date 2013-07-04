@@ -114,38 +114,37 @@
 	{% if id == -1 %}
 		Error: invalid survey id.
 	{% else %}
-
-		<div id="frame" align="center">
-			<p id="title">Title: {{poll.title}}</p>
-			<p id="subtitle">By {{poll.author}}, {{poll.date}}</p>
-			<p> Survey Description: {{poll.desc}}</p>
-			Answers:
-			<ul class="lis"> <form action="vote/" method= "post">
-			{% csrf_token %}
-			{% for answer in answers %}
-					<li><input type="radio" name="answers" value="{{forloop.counter}}"> {{answer.text}} - {{answer.votes}} votes</li>
-			{% endfor %}
-			<input type="submit" value="Vote">
-			</form> </ul>
-		</div>
-
-
-	<div id="commentsFrame">
-			Comments:
-			<form id="comment-form" action="comment/" method= "post">{% csrf_token %}<input class="required" type= "text" name= "text" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Write your own comment..':this.value;" value="Write your own comment.."> <input class="required" type= "text" name= "author" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Your Name':this.value;" value="Your Name"> <input type= "submit" value= "Submit"></form>
-			<p id="comment-error" style="display:none; color:red;">Error: please fill the input fields.</p>
-			{% if comments %}
-		<ul class=" lis">
-				{% for comment in comments %}
-						<li><span id="subComm" >[{{comment.date}}]</span> <span id="comm">{{comment.author}}: {{comment.text}}</span></li>
-				{% endfor %}
-			{% else %}
-				There are no comments on this poll.
-			{% endif %}
-		{% endif %}
-	</ul>
+	<div id= "pccontainer">
+	<div id="poll-info">
+		<p id="title">{{poll.title}}</p>
+		<p id="subtitle">By {{poll.author}}, {{poll.date}}</p>
+		<p>Description: {{poll.desc}}</p>
+		Answers:
+		<ul class="lis"> <form action="vote/" method= "post">
+		{% csrf_token %}
+		{% for answer in answers %}
+				<li><input type="radio" name="answers" value="{{forloop.counter}}"> {{answer.text}} - {{answer.votes}} votes</li>
+		{% endfor %}
+		<input type="submit" value="Vote">
+		</form> </ul>
 	</div>
-
-<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
-
+	<div id="commentsFrame">
+		Comments:
+		<form id="comment-form" action="comment/" method= "post">{% csrf_token %}
+			<input class="required" type= "text" name= "text" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Write your own comment..':this.value;" value="Write your own comment.." size="35"> 
+			<input class="required" type= "text" name= "author" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Your Name':this.value;" 	value="Your Name" size="10"> 
+			<input type= "submit" value= "Submit">
+		</form>
+		<p id="comment-error" style="display:none; color:red;">Error: please fill the input fields.</p>
+		{% if comments %}
+				{% for comment in comments %}
+					<span id="com-date" >[{{comment.date}}]</span> <span id="com-author">{{comment.author}}:</span> <span id="com-text">{{comment.text}}</span><br>
+				{% endfor %}
+		{% else %}
+			There are no comments on this poll.
+		{% endif %}
+	{% endif %}
+	</div>
+	<div id="container" style="min-width: 400px; max-width: 1000px; height: 400px; margin: 0 auto"></div>
+	</div>
 {% endblock %}
