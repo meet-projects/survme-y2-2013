@@ -23,17 +23,46 @@
 	</script>
 {% endblock %}
 {% block content %}
-	<div id="frame">
+	<div id="surframe">
 		<form action="create/" method= "post">
 		<div  align="center">
 				<table id="createSurv">
 					{% csrf_token %}
 
-					<tr><td valign="middle"><div class="row">Title: <input type= "text" name= "title" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Title..':this.value;" value="Title.."></div></td></tr>
-					<tr><td><div class="row">Author: <input type= "text" name= "author" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Author..':this.value;" value="Author.."></div></td></tr>
-					<tr><td><div class="row">Description: <textarea cols="25" rows="8" name="desc">Description..</textarea></div></td></tr>
-					<tr><td><div class="row">Answer: <input type= "text" name= "answer1" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Answer..':this.value;" value="Answer.."></div></td></tr>	
-					<tr><td><div class="row">Answer: <input type= "text" name= "answer2" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Answer..':this.value;" value="Answer.."></div></td></tr>
+					<tr>
+						<td valign="middle">
+							<div class="row">Title: <input type= "text" name= "title" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Title..':this.value;" value="Title..">
+							</div>
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<div class="row">Author: <input type= "text" name= "author" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Author..':this.value;" value="Author..">
+							</div>
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<div class="row">Description: <textarea cols="25" rows="8" name="desc">Description..</textarea>
+							</div>
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<div class="row">Answer: <input type= "text" name= "answer1" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Answer..':this.value;" value="Answer..">
+							</div>
+						</td>
+					</tr>
+	
+					<tr>
+						<td>
+							<div class="row">Answer: <input type= "text" name= "answer2" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Answer..':this.value;" value="Answer..">
+							</div>
+						</td>
+					</tr>
 				</table>
 		</div>
 				<div>

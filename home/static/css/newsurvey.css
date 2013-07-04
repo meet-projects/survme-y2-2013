@@ -16,6 +16,16 @@
 	vertical-align:middle;
 }
 
+#surframe{
+	background-color:#FFFFCC;
+	width:1000px;
+	margin:0 auto;
+	padding:25px;
+	border-radius:1em 1em 1em 1em;
+	border-style:outset;
+}
+
+
 .button {
    border-top: 1px solid #b57b2a;
    background: #d6b665;
