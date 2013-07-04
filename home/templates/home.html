@@ -14,11 +14,11 @@
 <br>
 
 	<div id="feed">
-		{% if recentFeed %}
+	<div id="mostRecent">	{% if recentFeed %}
 			Five most recent surveys:
 			<ul>
 				{% for survey in recentFeed %}
-					<div> <li><a href="/survey/{{survey.id}}">{{survey.title}}</a> - {{survey.desc}}, by {{survey.author}}</li> </div>
+					<div> <li><a class= "survey_link" href="/survey/{{survey.id}}" >{{survey.title}}</a> - {{survey.desc}}, by {{survey.author}}</li> </div>
 				{% endfor %}
 			</ul>
 		{% else %}
@@ -26,10 +26,12 @@
 		{% endif %}
 
 		{% if popularFeed %}
+	</div>
+	<div id="mostPopular">
 			Five most popular surveys:
 			<ul>
 				{% for survey in popularFeed %}
-					<div> <li><a href="/survey/{{survey.id}}">{{survey.title}}</a> - {{survey.desc}}, by {{survey.author}}</li> </div>
+					<div> <li><a class= "survey_link" href="/survey/{{survey.id}}">{{survey.title}}</a> - {{survey.desc}}, by {{survey.author}}</li> </div>
 				{% endfor %}
 			</ul>
 		{% else %}

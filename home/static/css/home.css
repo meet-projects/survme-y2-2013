@@ -1,2 +1,17 @@
 #feed {font-size: 20px; color: #333333;
 }
+a.survey_link:link, a.survey_link:visited {
+	color:#663300;
+}
+
+#mostRecent {background-color: #FFFFCC;
+	margin:100px;
+	padding:25px;
+	border-radius:1em 1em 1em 1em;
+}
+
+#mostPopular {background-color: #FFFFCC;
+	margin:100px;
+	padding:25px;
+	border-radius:1em 1em 1em 1em;
+}
