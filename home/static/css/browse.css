@@ -1,0 +1,29 @@
+#surveyFrame {
+	color:#336699;
+	font-size:18px;
+	background-color:#CCFFFF;
+	margin:50px;
+	padding:25px;
+	border-radius:1em 1em 1em 1em;
+}
+
+#survTItle{
+	font-size:23px;
+	text-decoration:underline;
+}
+
+#subTitle{
+	color:#336699;
+	font-size:16;
+}
+
+#desc{
+	font-size:15;
+	color:black;
+}
+
+input{
+	float:right; 
+	border-radius:0.7em 0.7em 0.7em 0.7em;
+	vertical-align:middle;
+}
