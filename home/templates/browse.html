@@ -10,10 +10,10 @@
 		<p id="browseTitle"> All surveys: </p>
 		<div id="main" align="center">		
 			{% for survey in surveys %}
-				<div class="surveyFrame" align="center">
+				<a href="/survey/{{survey.id}}" class="links"> <div class="surveyFrame" align="center">
 					<p><span  class="survTitle">{{survey.title}}</span> <span class="subTitle">  by {{survey.author}}			({{survey.totalvotes}} votes) </span></p>
 					<p class="desc">{{survey.desc}}</p>
-				</div>
+				</div> </a>
 			{% endfor %}
 		</div>
 
@@ -26,4 +26,3 @@
 
 
 
-<!-- title, desc, author, totalvotes, <a href="/survey/{{survey.id}}">Click Here</a> -->
