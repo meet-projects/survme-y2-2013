@@ -35,7 +35,7 @@ def displaySurvey(request, sid):
     context = {
         "poll":survey,
         "answers":answers,
-        "comments":comments,
+        "comments":comments[::-1],
         # ohai ron python encodes python dictionaries into json nicely so you don't have to fuck with curly braces etc. <3 <3 <3
         "JSON": json.dumps(JSON) 
         }
