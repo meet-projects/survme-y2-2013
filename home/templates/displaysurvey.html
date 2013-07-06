@@ -6,10 +6,10 @@
 {% block headers %}
 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/displaysurvey.css">
 	<script src="http://code.highcharts.com/highcharts.js"></script>
-	<!-- <script src="{{ STATIC_URL }}js/charts.js"></script> -->
+	<script src="{{ STATIC_URL }}js/charts.js"></script>
 	<script type="text/javascript">
 	$(function () {
-	
+		var highchartsOptions = Highcharts.setOptions(Highcharts.theme);	
 		var json = JSON.parse('{{JSON|safe}}');
         var colors = Highcharts.getOptions().colors,
             categories = json.categories,
@@ -123,9 +123,9 @@
 		<ul class="lis"> <form action="vote/" method= "post">
 		{% csrf_token %}
 		{% for answer in answers %}
-				<li><input type="radio" name="answers" value="{{forloop.counter}}"> {{answer.text}} - {{answer.votes}} votes</li>
+				<input type="radio" name="answers" value="{{forloop.counter}}">{{answer.text}}
 		{% endfor %}
-		<input type="submit" value="Vote">
+		<br><input type="submit" value="Vote">
 		</form> </ul>
 	</div>
 	<div id="commentsFrame">
@@ -145,6 +145,6 @@
 		{% endif %}
 	{% endif %}
 	</div>
-	<div id="container" style="min-width: 400px; max-width: 1000px; height: 400px; margin: 0 auto"></div>
+	<div id="container" style="min-width: 400px; max-width: 1150px; height: 400px;"></div>
 	</div>
 {% endblock %}
