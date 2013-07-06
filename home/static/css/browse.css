@@ -5,8 +5,13 @@
 
 .surveyFrame {
 	color:#336699;
+   background: #d3e1eb;
+   background: -webkit-gradient(linear, left top, left bottom, from(#75b1d9), to(#d3e1eb));
+   background: -webkit-linear-gradient(top, #75b1d9, #d3e1eb);
+   background: -moz-linear-gradient(top, #75b1d9, #d3e1eb);
+   background: -ms-linear-gradient(top, #75b1d9, #d3e1eb);
+   background: -o-linear-gradient(top, #75b1d9, #d3e1eb);
 	font-size:18px;
-	background-color:#CCFFFF;
 	margin:20px;
 	padding:7px;
 	border-radius:1em 1em 1em 1em;
