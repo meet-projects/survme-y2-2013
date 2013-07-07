@@ -14,21 +14,8 @@
 <br>
 
 	<div id="feed">
-	<div id="mostRecent">	{% if recentFeed %}
-			Five most recent surveys:
-			<ul>
-				{% for survey in recentFeed %}
-					<div> <li><a class= "survey_link" href="/survey/{{survey.id}}" >{{survey.title}}</a> - by {{survey.author}}</li> </div>
-				{% endfor %}
-			</ul>
-		{% else %}
-			<div id="try">No surveys.</div>
-		{% endif %}
-
-		{% if popularFeed %}
-	</div>
-	<div id="mostPopular">
-			Five most popular surveys:
+	<div id="mostPopular"> {% if popularFeed %}
+			Five most popular polls:
 			<ul>
 				{% for survey in popularFeed %}
 					<div> <li><a class= "survey_link" href="/survey/{{survey.id}}">{{survey.title}}</a> - by {{survey.author}}</li> </div>
@@ -38,6 +25,18 @@
 			No surveys.
 		{% endif %}
 	</div>
+	<div id="mostRecent">	{% if recentFeed %}
+			Five most recent polls:
+			<ul>
+				{% for survey in recentFeed %}
+					<div> <li><a class= "survey_link" href="/survey/{{survey.id}}" >{{survey.title}}</a> - by {{survey.author}}</li> </div>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<div id="try">No surveys.</div>
+		{% endif %}
 
+	</div>
+	
 {% endblock %}
 </div>

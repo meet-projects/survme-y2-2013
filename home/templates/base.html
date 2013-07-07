@@ -1,8 +1,8 @@
 <html>
 <head>
 	<title> {% block title %} {% endblock %} </title>
-	<meta name= "keywords" content= "Survey, Questionare, Data, Graph, Ask, Answer">
-	<meta name= "description" content= "Connect with others who have the same interests by filling out surveys">
+	<meta name= "keywords" content= "Poll, Questionare, Data, Graph, Ask, Answer">
+	<meta name= "description" content= "Connect with others who have the same interests by answering polls">
 	<meta name= "author" content="Nadeen J, Ron L, Yasmine Y, Yarden B, Aviv B">
 	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.10.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/base.css">
@@ -14,12 +14,14 @@
 	<div id="error" style="display:none;">
 		Error.
 	</div>
-			<a href= "/home"><img id="logo" src="{{ STATIC_URL }}images/new_logo.png"/></a>
+	<div>
+			<a href= "/home"><img src="{{ STATIC_URL }}images/newer_logo.png"/></a>
 			<ul id="navbar">
-				<li class="navItem"><a class="nav" href="/home">Home</a></li>
-				<li class="navItem"><a class="nav" href="/new">New Survey</a></li>
-				<li class="navItem"><a class="nav" href="/browse">Browse</a></li>
+				<li class="navItem"><a href="/home">Home</a></li>
+				<li class="navItem"><a href="/new">New Poll</a></li>
+				<li class="navItem"><a href="/browse">Browse</a></li>
 			</ul>
+	</div>
 
 
 

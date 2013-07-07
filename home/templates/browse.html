@@ -1,13 +1,12 @@
 {% extends "base.html" %}
 {% block title%}
-	Browse Surveys Page
+	Browse Polls Page
 {% endblock %}
 {% block headers %}
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/browse.css">
 {% endblock %}
 {% block content %}
 	{% if surveys %}
-		<p id="browseTitle"> All surveys: </p>
 		<div id="main" align="center">		
 			{% for survey in surveys %}
 				<a href="/survey/{{survey.id}}" class="links"> <div class="surveyFrame" align="center">
