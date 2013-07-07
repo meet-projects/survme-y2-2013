@@ -6,16 +6,11 @@ a.survey_link:link, a.survey_link:visited {
 	color:#CC6600;
 }
 
-a.survey_link{
-	color:#CC6600;
-}
-
 #navbar{
 	list-style-type:none;
 	position:absolute;
 	margin:0px;
 	padding:0px;
-	/*float:left;*/
 	bottom:0px;
 	left:160px;
 	/*margin-left:200px;
