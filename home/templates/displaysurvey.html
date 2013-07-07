@@ -118,7 +118,9 @@
 	<div id="poll-info">
 		<p id="title">{{poll.title}}</p>
 		<p id="subtitle">By {{poll.author}}, {{poll.date}}</p>
-		<p>Description: {{poll.desc}}</p>
+		{% if poll.desc %}
+			<p>Description: {{poll.desc}}</p>
+		{% endif %}
 		Answers:
 		<ul class="lis"> <form action="vote/" method= "post">
 		{% csrf_token %}
@@ -145,6 +147,6 @@
 		{% endif %}
 	{% endif %}
 	</div>
-	<div id="container" style="min-width: 400px; max-width: 1150px; height: 400px;"></div>
+	<div id="container" style="min-width: 400px; max-width: 1150px; height: 400px; margin-left: 25px;"></div>
 	</div>
 {% endblock %}
