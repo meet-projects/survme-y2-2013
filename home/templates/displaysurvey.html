@@ -117,17 +117,16 @@
 	<div id= "pccontainer">
 	<div id="poll-info">
 		<p id="title">{{poll.title}}</p>
-		<p class="subtitle">By {{poll.author}}, {{poll.date}}</p>
+		<p id="subtitle">By {{poll.author}}, {{poll.date}}</p>
 		{% if poll.desc %}
 			<p>Description: {{poll.desc}}</p>
 		{% endif %}
-		<p class="subtitle">Answers:</p>
+		Answers:
 		<ul class="lis"> <form action="vote/" method= "post">
 		{% csrf_token %}
 		{% for answer in answers %}
 				<input type="radio" name="answers" value="{{forloop.counter}}">{{answer.text}}
 		{% endfor %}
-		<br>
 		<br><input type="submit" value="Vote">
 		</form> </ul>
 	</div>
