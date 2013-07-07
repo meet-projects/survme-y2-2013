@@ -54,6 +54,13 @@
 	font-size:80%;
 }
 
+#comment-error {
+	display:none; 
+	color:red;
+	font-size: 15px;
+	font-weight:bold;
+}
+
 #pccontainer { 
 	width: 1500px;
 	margin: 0 auto;

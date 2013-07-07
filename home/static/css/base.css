@@ -2,11 +2,6 @@ html{
 	font-family:"Arial", Helvetica, sans-serif;
 }
 
-
-#logo{
-	/*float:left;*/
-}
-
 a.survey_link:link, a.survey_link:visited {
 	color:#CC6600;
 }
@@ -17,13 +12,14 @@ a.survey_link{
 
 #navbar{
 	list-style-type:none;
+	position:absolute;
 	margin:0px;
 	padding:0px;
 	/*float:left;*/
 	bottom:0px;
-	right:0px;
-	margin-left:160px;
-	margin-bottom:50px;
+	left:160px;
+	/*margin-left:200px;
+	margin-bottom:40px;*/
 	/*box-shadow:5px 5px 5px;*/
 }
 

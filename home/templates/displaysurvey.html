@@ -137,7 +137,7 @@
 			<input class="required" type= "text" name= "author" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Your Name':this.value;" 	value="Your Name" size="10"> 
 			<input type= "submit" value= "Submit">
 		</form>
-		<p id="comment-error" style="display:none; color:red;">Error: please fill the input fields.</p>
+		<p id="comment-error">Error: please fill the input fields.</p>
 		{% if comments %}
 				{% for comment in comments %}
 					<span id="com-date" >[{{comment.date}}]</span> <span id="com-author">{{comment.author}}:</span> <span id="com-text">{{comment.text}}</span><br>
