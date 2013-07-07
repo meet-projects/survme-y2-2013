@@ -3,9 +3,6 @@ html{
 }
 
 
-#logo{
-	/*float:left;*/
-}
 
 a.survey_link:link, a.survey_link:visited {
 	color:#CC6600;
@@ -24,7 +21,7 @@ a.survey_link{
 	right:0px;
 	margin-left:160px;
 	margin-bottom:50px;
-	/*box-shadow:5px 5px 5px;*/
+	box-shadow:5px 5px 5px;
 }
 
 .navItem{
