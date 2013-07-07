@@ -7,6 +7,33 @@ a.navbar:link, a.navbar:visited {
 	color: #FF6600 ;
 }
 
+#desc{
+	color:#000000;
+   background: #d3e1eb;
+   background: -webkit-gradient(linear, left top, left bottom, from(#75b1d9), to(#d3e1eb));
+   background: -webkit-linear-gradient(top, #75b1d9, #d3e1eb);
+   background: -moz-linear-gradient(top, #75b1d9, #d3e1eb);
+   background: -ms-linear-gradient(top, #75b1d9, #d3e1eb);
+   background: -o-linear-gradient(top, #75b1d9, #d3e1eb);
+	margin:20px;
+	padding:20px;
+
+	font-size:20px;	
+
+	border-radius:1em 1em 1em 1em;
+	border-style:outset;
+	position: absolute;
+	bottom: 110px;
+	top:220px;
+	left: 50px;
+	width:300px;
+	border-style:outset;
+}
+
+#desc:hover{
+	border-style:inset;
+}
+
 #mostRecent {
 	color:#663300;
    background: #e0cbb1;
